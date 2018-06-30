@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WG Suche{% endblock %}
+
+{% block content %}
+    <form style="margin-top: 100px; margin-bottom: 40px;" action="/registration/addUser" method="post" class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Registrierungsformular</legend>
+
+            <!-- Vorname -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Vorname</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="name" type="text" value="" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Nachname -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Nachname</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="name" type="text" value="" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Email</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="name" type="email" value="" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Passwort</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="name" type="password" value="" class="form-control input-md">
+                </div>
+            </div>
+
+            <!-- Jetzt anmelden -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <input type="submit" id="button1id" name="registration" class="btn btn-success" value="JETZT REGISTRIEREN!" />
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+{% endblock %}
