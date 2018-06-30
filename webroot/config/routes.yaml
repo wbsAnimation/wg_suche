@@ -1,7 +1,13 @@
+# Startseite
 index:
     path: /
     controller: App\Controller\IndexController::indexAction
 
+# Registrierung
 registration:
     path: /registration
     controller: App\Controller\RegistrationController::indexAction
+
+addUser:
+    path: /registration/addUser
+    controller: App\Controller\RegistrationController::addUserAction

@@ -7,10 +7,10 @@
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../Geheim/eventtool" />
+          <root url="file://$MODULE_DIR$/../../../Geheim/eventtool/webroot" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../../Geheim/eventtool" />
+          <root url="file://$MODULE_DIR$/../../../Geheim/eventtool/webroot" />
         </SOURCES>
       </library>
     </orderEntry>

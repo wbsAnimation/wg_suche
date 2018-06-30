@@ -12,7 +12,7 @@
 </head>
 <body>
 {% block body %}
-    {% include 'sidebar.html.twig' %}
+    {% include 'sidebar.html.twig' with {'session_id': 'session_id'} %}
 
     <div id="content">{% block content %}{% endblock %}</div>
 {% endblock %}
