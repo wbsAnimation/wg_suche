@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 class RegistrationController extends Controller
 {
     /** @const PASSWORD_LENGTH - Länge des Passworts */
-    const PASSWORD_LENGTH = 6;
+    const PASSWORD_LENGTH = 7;
 
     /**
      * Registrierungsformular
@@ -38,20 +38,20 @@ class RegistrationController extends Controller
         /** @var AbstractUserHelper $userHelper */
         $userHelper = $this->get('abstract_user_helper');
         $request = Request::createFromGlobals();
-        $postData = $this->getPostData($request);
 
+        if (strlen($request->get('password')) < static::PASSWORD_LENGTH) {
+            return $this->render(
+                'registration/registration.html.twig',
+                ['error' => "Dein Passwort muss länger als 6 Zeichen sein!"]
+            );
+        }
+        $postData = $this->getPostData($request);
         try {
             /** Email Überprüfung */
             if ($userHelper->isEmailAvailable($postData['email']) > 0) {
                 return $this->render(
                     'registration/registration.html.twig',
                     ['error' => "Die Email Adresse wird schon benutzt!"]
-                );
-                /** Passwort Überprüfung */
-            } elseif (strlen($postData['password']) > static::PASSWORD_LENGTH) {
-                return $this->render(
-                    'registration/registration.html.twig',
-                    ['error' => "Dein Passwort muss länger als 6 Zeichen sein!"]
                 );
                 /** Erfolgreich registriert */
             } else {

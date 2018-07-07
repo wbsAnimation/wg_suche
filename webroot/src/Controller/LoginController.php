@@ -33,4 +33,17 @@ class LoginController extends Controller
         $request = Request::createFromGlobals();
         $postData = $this->getPostData($request);
     }
+
+    /**
+     * Gibt die Postdaten zurück.
+     *
+     * @param Request $request
+     * @return array
+     */
+    protected function getPostData(Request $request): array
+    {
+        $data['email'] = $request->get('email');
+        $data['password'] = hash('sha256', $request->get('password'));
+        return $data;
+    }
 }
