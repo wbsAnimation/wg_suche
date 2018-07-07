@@ -41,9 +41,11 @@ class LoginController extends Controller
         $postData = $this->getPostData($request);
 
         if ($loginHelper->isUserAvailable($postData)) {
-            var_dump("drin");
+            $this->render('base.html.twig');
+            return $this->redirectToRoute("index", ['loggedIn' => 'true']);
+        } else {
+            return $this->render('login/login.html.twig', ['error' => 'Bitte erneut versuchen!']);
         }
-        exit;
     }
 
     /**

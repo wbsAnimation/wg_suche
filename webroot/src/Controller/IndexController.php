@@ -18,7 +18,10 @@ class IndexController extends Controller
 
     public function indexAction(): Response
     {
-
-        return $this->render('base.html.twig', array());
+        $loggedIn = 'false';
+        if (!empty($_GET)) {
+            $loggedIn = $_GET['loggedIn'];
+        }
+        return $this->render('base.html.twig', array("loggedIn" => $loggedIn));
     }
 }

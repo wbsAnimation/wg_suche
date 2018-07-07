@@ -8,7 +8,6 @@
 
 namespace App\Helper;
 
-
 use App\Service\DBConn;
 
 class LoginHelper
@@ -21,6 +20,13 @@ class LoginHelper
         $this->db_conn = $DBConn;
     }
 
+    /**
+     * Prüft, ob User in der Datenbank ist und gibt die Anzahl der verfügbaren Zeilen zurück.
+     * Rückgabewert sollte, wenn User gefunden ist immer eine 1 sein oder 0 wenn es keinen User gibt.
+     *
+     * @param array $postData
+     * @return bool
+     */
     public function isUserAvailable(array $postData): bool
     {
         $sql = "SELECT id FROM users WHERE email = :email AND password = :password";

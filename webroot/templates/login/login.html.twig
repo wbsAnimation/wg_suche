@@ -6,7 +6,12 @@
     <form style="margin-top: 100px; margin-bottom: 40px;" action="/login/user" method="post"
           class="form-horizontal">
         <fieldset>
+            {% if error is defined %}
+                <div class="alert alert-warning alert-dismissible" role="alert">
 
+                    <strong>{{ error }}</strong>
+                </div>
+            {% endif %}
             <!-- Form Name -->
             <legend>Loginformular</legend>
 
@@ -14,7 +19,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Email</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="email" type="email" value="" class="form-control input-md">
+                    <input id="textinput" name="email" type="email" value="" class="form-control input-md" required>
                 </div>
             </div>
 
@@ -22,7 +27,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Passwort</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="password" type="password" value="" class="form-control input-md">
+                    <input id="textinput" name="password" type="password" value="" class="form-control input-md" required>
                 </div>
             </div>
 

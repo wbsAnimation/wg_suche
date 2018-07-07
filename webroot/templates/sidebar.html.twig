@@ -1,23 +1,25 @@
 {% block sidebar %}
-    <nav style="position: fixed; top:0; width: 100%; z-index: 100; border-radius: 0;margin-bottom: 20px"
-         class="navbar navbar-inverse">
-        <div class="container-fluid">
+    <div>
+        <nav style="position: fixed; top:0; width: 100%; z-index: 100; border-radius: 0;margin-bottom: 20px"
+             class="navbar navbar-inverse">
+            <div class="container-fluid">
 
-            <a class="navbar-brand" href="/">WG Suche</a>
+                <a class="navbar-brand" href="/">WG Suche</a>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Startseite</a></li>
-                    {% if loggedIn == 'false' %}
-                        <li><a href="/registration">Hier Registrieren</a></li>
-                        <li><a href="/login">Login</a></li>
-                    {% endif %}
-                    {% if loggedIn == 'true' %}
-                    <li><a href="/logout">Logout</a></li>
-                    {% endif %}
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Startseite</a></li>
+                        {% if loggedIn == 'false' %}
+                            <li><a href="/registration">Hier Registrieren</a></li>
+                            <li><a href="/login">Login</a></li>
+                        {% endif %}
+                        {% if loggedIn == 'true' %}
+                            <li><a href="/logout">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
 {% endblock %}

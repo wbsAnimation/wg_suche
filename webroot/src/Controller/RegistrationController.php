@@ -56,7 +56,9 @@ class RegistrationController extends Controller
                 /** Erfolgreich registriert */
             } else {
                 $userHelper->insertUser($postData);
-                return $this->render('base.html.twig', ['loggedIn' => 'true']);
+                $this->render('base.html.twig', ['loggedIn' => 'true']);
+                return $this->redirectToRoute("index", ['loggedIn' => 'true']);
+
             }
         } catch (\PDOException $exception) {
             var_dump($exception);
