@@ -12,10 +12,12 @@ use App\Helper\AbstractUserHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class RegistrationController extends Controller
 {
+    /** @const PASSWORD_LENGTH - Länge des Passworts */
+    const PASSWORD_LENGTH = 6;
+
     /**
      * Registrierungsformular
      *
@@ -23,7 +25,7 @@ class RegistrationController extends Controller
      */
     public function indexAction(): Response
     {
-        return $this->render('registration/registration.html.twig', array());
+        return $this->render('registration/registration.html.twig', []);
     }
 
     /**
@@ -33,26 +35,33 @@ class RegistrationController extends Controller
      */
     public function addUserAction(): Response
     {
-        /** @var AbstractUserHelper $userHelper*/
+        /** @var AbstractUserHelper $userHelper */
         $userHelper = $this->get('abstract_user_helper');
         $request = Request::createFromGlobals();
         $postData = $this->getPostData($request);
 
-        // Setze Cookie um Anmeldung zu beweisen.
-        $request->cookies->set('user_session', sha1(md5($postData['email'])));
-
-        // TODO: Hier muss noch was getan werden
-//        $request->cookies->get('user_session');
-        $postData['session_id'] = '';
-
         try {
-            $userHelper->insertUser($postData);
+            /** Email Überprüfung */
+            if ($userHelper->isEmailAvailable($postData['email']) > 0) {
+                return $this->render(
+                    'registration/registration.html.twig',
+                    ['error' => "Die Email Adresse wird schon benutzt!"]
+                );
+                /** Passwort Überprüfung */
+            } elseif (strlen($postData['password']) > static::PASSWORD_LENGTH) {
+                return $this->render(
+                    'registration/registration.html.twig',
+                    ['error' => "Dein Passwort muss länger als 6 Zeichen sein!"]
+                );
+                /** Erfolgreich registriert */
+            } else {
+                $userHelper->insertUser($postData);
+                return $this->render('base.html.twig', ['loggedIn' => 'true']);
+            }
         } catch (\PDOException $exception) {
             var_dump($exception);
             exit;
         }
-
-        return $this->render('base.html.twig', array());
     }
 
     /**

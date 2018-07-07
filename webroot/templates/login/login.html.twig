@@ -3,36 +3,12 @@
 {% block title %}WG Suche{% endblock %}
 
 {% block content %}
-
-    <form style="margin-top: 100px; margin-bottom: 40px;" action="/registration/addUser" method="post"
+    <form style="margin-top: 100px; margin-bottom: 40px;" action="/login/user" method="post"
           class="form-horizontal">
         <fieldset>
 
-            {% if error is defined %}
-                <div class="alert alert-warning alert-dismissible" role="alert">
-
-                    <strong>{{ error }}</strong>
-                </div>
-            {% endif %}
-
             <!-- Form Name -->
-            <legend>Registrierungsformular</legend>
-
-            <!-- Vorname -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Vorname</label>
-                <div class="col-md-4">
-                    <input id="textinput" name="firstname" type="text" value="" class="form-control input-md">
-                </div>
-            </div>
-
-            <!-- Nachname -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Nachname</label>
-                <div class="col-md-4">
-                    <input id="textinput" name="lastname" type="text" value="" class="form-control input-md">
-                </div>
-            </div>
+            <legend>Loginformular</legend>
 
             <!-- Email -->
             <div class="form-group">
@@ -55,7 +31,7 @@
                 <label class="col-md-4 control-label" for="singlebutton"></label>
                 <div class="col-md-4">
                     <input type="submit" id="button1id" name="registration" class="btn btn-success"
-                           value="JETZT REGISTRIEREN!"/>
+                           value="Anmelden"/>
                 </div>
             </div>
 

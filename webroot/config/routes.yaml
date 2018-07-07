@@ -11,3 +11,12 @@ registration:
 addUser:
     path: /registration/addUser
     controller: App\Controller\RegistrationController::addUserAction
+
+# Login
+login:
+    path: /login
+    controller: App\Controller\LoginController::indexAction
+
+user:
+    path: /login/user
+    controller: App\Controller\LoginController::loginAction

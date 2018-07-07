@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS `wg_suche`.`users` (
   `lastname` VARCHAR(2500) NULL,
   `email` VARCHAR(2500) NULL,
   `password` VARCHAR(2500) NULL,
-  `session_id` VARCHAR(2500) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

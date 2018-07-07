@@ -10,6 +10,7 @@ namespace App\Helper;
 
 
 use App\Service\DBConn;
+use Symfony\Component\HttpFoundation\Request;
 
 class AbstractUserHelper
 {
@@ -22,24 +23,44 @@ class AbstractUserHelper
     }
 
     /**
-     * Fügt neuen User hinzu mit seinen übergegebenen Daten.
+     * Fügt einen User hinzu.
      *
      * @param array $postData
+     * @return bool
      */
-    public function insertUser(array $postData)
+    public function insertUser(array $postData): bool
     {
         $sql = "
-            INSERT INTO users (firstname, lastname, email, password, session_id)
-            VALUES (:firstname, :lastname, :email, :password, :session_id)
+            INSERT INTO users (firstname, lastname, email, password)
+            VALUES (:firstname, :lastname, :email, :password)
         ";
         $statement = $this->db_conn->prepare($sql);
+        try {
+            $statement->execute([
+                'firstname' => $this->umlauteUmwandeln($postData['firstname'], 1),
+                'lastname' => $this->umlauteUmwandeln($postData['lastname'], 1),
+                'email' => $postData['email'],
+                'password' => $postData['password'],
+            ]);
+            return true;
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Holt die id des Users, wenn es die schon existiert.
+     *
+     * @param string $email
+     * @return int
+     */
+    public function isEmailAvailable(string $email): int
+    {
+        $statement = $this->db_conn->prepare("SELECT id FROM users WHERE email = :email");
         $statement->execute([
-            'firstname' => $this->umlauteUmwandeln($postData['firstname'], 1),
-            'lastname' => $this->umlauteUmwandeln($postData['lastname'], 1),
-            'email' => $postData['email'],
-            'password' => $postData['password'],
-            'session_id' => $postData['session_id']
+           'email' => $email
         ]);
+        return $statement->rowCount();
     }
 
     /**
