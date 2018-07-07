@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Helper\AbstractUserHelper;
+use App\Helper\LoginHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,12 +27,23 @@ class LoginController extends Controller
         return $this->render('login/login.html.twig', []);
     }
 
+    /**
+     * User wird eingeloggt, wenn er die richtige Email und das richtige Passwort eingibt.
+     * Zusätzlich wird er weitergeleitet zur Startseite.
+     *
+     * @return Response
+     */
     public function loginAction(): Response
     {
-        /** @var AbstractUserHelper $userHelper */
-        $userHelper = $this->get('abstract_user_helper');
+        /** @var LoginHelper $loginHelper */
+        $loginHelper = $this->get('login_helper');
         $request = Request::createFromGlobals();
         $postData = $this->getPostData($request);
+
+        if ($loginHelper->isUserAvailable($postData)) {
+            var_dump("drin");
+        }
+        exit;
     }
 
     /**

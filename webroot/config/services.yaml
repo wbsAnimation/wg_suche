@@ -17,3 +17,7 @@ services:
     abstract_user_helper:
         class: App\Helper\AbstractUserHelper
         arguments: ['@db_conn']
+
+    login_helper:
+        class: App\Helper\LoginHelper
+        arguments: ['@db_conn']
