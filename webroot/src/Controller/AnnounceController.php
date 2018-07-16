@@ -12,6 +12,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class AnnounceController extends Controller
 {
@@ -24,8 +25,11 @@ class AnnounceController extends Controller
     {
         $request = Request::createFromGlobals();
         $postData = $this->getPostData($request);
-        var_dump($postData);
+        $user = $this->container->get('session');
+        var_dump($user);
         exit;
+        $this->render('base.html.twig');
+        return $this->redirectToRoute("index", ['loggedIn' => 'true']);
     }
 
     /**

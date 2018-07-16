@@ -30,7 +30,25 @@ CREATE TABLE IF NOT EXISTS `wg_suche`.`users` (
   `email` VARCHAR(2500) NULL,
   `password` VARCHAR(2500) NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `wg_suche`.`rooms`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wg_suche`.`rooms` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user` VARCHAR(2500) NULL,
+  `headline` VARCHAR(2500) NULL,
+  `street` VARCHAR(2500) NULL,
+  `number` VARCHAR(2500) NULL,
+  `post_code` VARCHAR(2500) NULL,
+  `city` VARCHAR(2500) NULL,
+  `public` VARCHAR(2500) NULL,
+  `arrival` VARCHAR(2500) NULL,
+  `rental_charges` VARCHAR(2500) NULL,
+  `room_size` VARCHAR(2500) NULL,
+  PRIMARY KEY (`id`))
+  ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
