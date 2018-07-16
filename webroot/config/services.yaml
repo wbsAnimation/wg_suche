@@ -21,3 +21,7 @@ services:
     login_helper:
         class: App\Helper\LoginHelper
         arguments: ['@db_conn']
+
+    announce_helper:
+        class: App\Helper\AnnounceHelper
+        arguments: ['@db_conn']

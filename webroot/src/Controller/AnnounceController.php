@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 
+use App\Helper\AnnounceHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,9 +26,11 @@ class AnnounceController extends Controller
     {
         $request = Request::createFromGlobals();
         $postData = $this->getPostData($request);
-        $user = $this->container->get('session');
-        var_dump($user);
-        exit;
+
+        /** @var AnnounceHelper $announceHelper */
+        $announceHelper = $this->get('announce_helper');
+        // TODO: Hier Daten in die Datenbank schreiben!!!!
+
         $this->render('base.html.twig');
         return $this->redirectToRoute("index", ['loggedIn' => 'true']);
     }
