@@ -10,12 +10,12 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="/">Startseite</a></li>
-                        <li><a href="/announce">Anzeige bekanntmachen</a></li>
                         {% if loggedIn == 'false' %}
                             <li><a href="/registration">Hier Registrieren</a></li>
                             <li><a href="/login">Login</a></li>
                         {% endif %}
                         {% if loggedIn == 'true' %}
+                            <li><a href="/announce">Anzeige bekanntmachen</a></li>
                             <li><a href="/logout">Logout</a></li>
                         {% endif %}
                     </ul>

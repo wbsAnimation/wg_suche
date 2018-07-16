@@ -3,7 +3,7 @@
 {% block title %}WG Suche{% endblock %}
 
 {% block content %}
-    <form style="margin-top: 100px; margin-bottom: 40px;" action="/announce/sharedRoom" method="post"
+    <form style="margin-top: 100px; margin-bottom: 40px;" action="/announce/shareRoom" method="post"
           class="form-horizontal">
         <fieldset>
             <!-- Form Name -->
@@ -39,7 +39,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Mietbeginn</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="arrival" type="text" placeholder="Ab wann?" value="" class="form-control input-md"
+                    <input id="textinput" name="arrival" type="date" placeholder="Ab wann?" value="" class="form-control input-md"
                            required>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Mietkosten</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="rentalCharges" type="text" placeholder="Gesamtmiete pro Monat" value="" class="form-control input-md"
+                    <input id="textinput" name="rentalCharges" type="number" placeholder="Gesamtmiete pro Monat in €" value="" class="form-control input-md"
                            required>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Zimmergröße</label>
                 <div class="col-md-4">
-                    <input id="textinput" name="roomSize" type="text" placeholder="Größe des Zimmers in m²" value="" class="form-control input-md"
+                    <input id="textinput" name="roomSize" type="number" placeholder="Größe des Zimmers in m²" value="" class="form-control input-md"
                            required>
                 </div>
             </div>

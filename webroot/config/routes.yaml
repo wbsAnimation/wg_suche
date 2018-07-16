@@ -29,3 +29,7 @@ logout:
 announce:
     path: /announce
     controller: App\Controller\AnnounceController::indexAction
+
+shareRoom:
+    path: /announce/shareRoom
+    controller: App\Controller\AnnounceController::shareRoomAction
