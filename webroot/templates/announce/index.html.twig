@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WG Suche{% endblock %}
+
+{% block content %}
+    <form style="margin-top: 100px; margin-bottom: 40px;" action="/announce/sharedRoom" method="post"
+          class="form-horizontal">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Mache Dein WG-Zimmer kostenlos bekannt</legend>
+
+            <!-- Überschrift WG-Zimmer -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Überschrift deiner Bekanntmachung</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="announce" type="text" placeholder="Schreibe hier..." value="" class="form-control input-md" required>
+                </div>
+            </div>
+
+            <!-- Adresse -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Adresse</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="address[street]" type="text" placeholder="Straße" value="" class="form-control input-md"
+                           required>
+                    <input id="textinput" name="address[number]" type="number" placeholder="Nr." value="" class="form-control input-md"
+                           required>
+                    <input id="textinput" name="address[postCode]" type="number" placeholder="Postleitzahl" value="" class="form-control input-md"
+                           required>
+                    <input id="textinput" name="address[city]" type="text" placeholder="Stadt" value="" class="form-control input-md"
+                           required>
+                    <label>
+                        <input type="checkbox" name="address[public]" value="" id="textinput" checked="checked">Öffentlich
+                    </label>
+                </div>
+            </div>
+
+            <!-- Mietbeginn -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Mietbeginn</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="arrival" type="text" placeholder="Ab wann?" value="" class="form-control input-md"
+                           required>
+                </div>
+            </div>
+
+            <!-- Mietkosten -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Mietkosten</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="rentalCharges" type="text" placeholder="Gesamtmiete pro Monat" value="" class="form-control input-md"
+                           required>
+                </div>
+            </div>
+
+            <!-- Zimmergröße -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Zimmergröße</label>
+                <div class="col-md-4">
+                    <input id="textinput" name="roomSize" type="text" placeholder="Größe des Zimmers in m²" value="" class="form-control input-md"
+                           required>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <input type="submit" id="button1id" name="announce" class="btn btn-success"
+                           value="Bekanntmachen"/>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+{% endblock %}

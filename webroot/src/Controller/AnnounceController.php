@@ -9,7 +9,13 @@
 namespace App\Controller;
 
 
-class AnnounceController
-{
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
+class AnnounceController extends Controller
+{
+    public function indexAction(): Response
+    {
+        return $this->render('announce/index.html.twig', []);
+    }
 }

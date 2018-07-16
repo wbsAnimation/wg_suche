@@ -8,8 +8,14 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
-class LogoutController
+class LogoutController extends Controller
 {
-
+    public function indexAction(): Response
+    {
+        $this->render('base.html.twig');
+        return $this->redirectToRoute("index", ['loggedIn' => 'false']);
+    }
 }

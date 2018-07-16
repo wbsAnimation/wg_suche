@@ -20,3 +20,12 @@ login:
 user:
     path: /login/user
     controller: App\Controller\LoginController::loginAction
+
+logout:
+    path: /logout
+    controller: App\Controller\LogoutController::indexAction
+
+# Anzeige Formular
+announce:
+    path: /announce
+    controller: App\Controller\AnnounceController::indexAction

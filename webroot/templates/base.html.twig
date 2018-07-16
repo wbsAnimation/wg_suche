@@ -25,11 +25,7 @@
     {% include 'sidebar.html.twig' with vars %}
 {% endif %}
 <div id="content">
-    {% if loggedIn is defined %}
-        {% if loggedIn == 'true' %}
-            <div style="margin-top: 50px" class="alert alert-success" role="alert">Erfolgreich angemeldet!</div>
-        {% endif %}
-    {% endif %}
+
     {% block content %}{% endblock %}
 </div>
 {% endblock %}
